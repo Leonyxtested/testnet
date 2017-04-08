@@ -1,0 +1,48 @@
+Estos son los pasos que deben seguir automatizar el encendido del nodo,posiblemente vaya mejorandose.
+
+-Crear un script como "prueba.sh" con lo siguiente:
+	
+	#!/bin/bash
+	# -*- ENCODING: UTF-8 -*-
+	cd testnet (el directorio donde este el testnet,yo lo tengo en el mismo)
+	sh start.sh 
+
+-Guardenlo.
+
+-Ahora lo convertimos en un ejecutable.
+
+	chmod 755 "script anterior.sh"
+
+-Creen otro script con otro nombre,yo lo tengo en el escritorio pero lo pueden hacer en /home/Usuario si lo desean. En este script ponen lo siguiente:
+
+	#!/bin/bash
+	# -*- ENCODING: UTF-8 -*-
+	gnome-terminal -e "bash /home/Usuario/cgminer.sh"
+	gnome-terminal -e "bash /home/Usuario/prueba.sh"
+	Terminal=true
+	Type=Application
+
+-Guardenlo.
+
+-Se vuelve hacer el paso anterior para convertirlo en ejecutable.
+
+-Esto los abrirá un terminal donde se ejecutara el anterior script,como ven hay otro script tambien,este ejecutable es util para automatizar varios procesos.
+
+-Crear un el lanzador para que en solo dos clicks este todo funcionando. Puede que necesites descargar algo cuando ejecutes el siguiente comando.
+
+	gnome-desktop-item-edit ~/Escritorio --create-new (~/Escritorio es donde quieres que se cree el lanzador)
+
+-Aparecera una pantalla donde aparecera:
+
+	Tipo: Aplicacion
+	Nombre: El que querais
+	Comando: Examinais y buscais el script anterior
+	Comentario:
+
+-Aceptais y listo,si habeis elegido el escritorio os aparecera un cuadro con una huella de un pie,doble click y se ejecutara solo.
+
+Gracias.
+
+
+
+
