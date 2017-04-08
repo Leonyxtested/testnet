@@ -1,35 +1,35 @@
 æternity
 ==========
 
-This is the code used for the testnet for the [æternity](www.aeternity.com) project.
+Este es el código utilizado para testnet para el proyecto [æternity](www.aeternity.com).
 
-This testnet uses simple PoW consensus. Its purpose is to show how state-channels work.
+Este testnet utiliza un simple consenso de PoW. Su propósito es mostrar cómo funcionan los canales.
 
-### Compiling and Runing
-You will need Erlang and a couple of libraries. Please follow instructions:
+### Compilando y Empezando
+Necesitarás Erlang y un par de librerias. Sigue las instrucciones:
 [For Ubuntu](docs/compile.md)
 
-Then, start your node with following script:
+A continuación, inicie su nodo con el siguiente comando:
 ```
 sh start.sh
 ```
 
-### Commands
+### Commandos
 
-#### Sync with the network
-To sync with the network and download the blockchain: 
+#### Sincronizar con la red
+Para sincronizar con la red y descargar la cadena de bloques:
 ```
 easy:sync().
 ```
 
-#### Mining
-After fresh install, one can start mining.
+#### Mineria
+Después de la instalación, se puede iniciar la minería.
 
-To start mining with all CPU cores: 
+Para iniciar la minería con todos los núcleos de la CPU:
 ```
 mine:start().
 ```
-To stop mining:
+Para detener la minería:
 ```
 mine:stop().
 ```
