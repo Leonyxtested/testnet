@@ -33,43 +33,43 @@ Para detener la minería:
 ```
 mine:stop().
 ```
-to check if you are currently mining:
+Para comprobar si está minando:
 ```
 mine:is_on().
 ```
 
-#### Spend
+#### Gasto
 ```
 easy:spend(To, Amount).
 ```
-To is the recipient's account ID
+"To" es el ID de cuenta del destinatario,ejemplo: easy:spend(5, 10).
 
-#### Last transactions
+#### Transacciones
 ```
 tx_pool:data().
 ```
 
-#### Find out your account ID
+#### Descubre el ID de tu cuenta
 ```
 keys:id().
 ```
-If it returns something less than 1, that means you don't have an account yet.
+Si devuelve algo menos de 1, eso significa que aún no tienes una cuenta.
 
-#### Create an account
-(does get done automatically when no accocunt and mining starts)
-[Make an account](docs/new_account.md)
+#### Crear una cuenta
+(Se hace automáticamente cuando no se inicia la cuenta y la minería)
+[Hacer una cuenta](docs/new_account.md)
 
-#### Check your balance
+#### Revisar tu balance
 ```
 easy:balance().
 ```
 
-#### Stop a node
-To stop a node run:
+#### Parar el nodo
+Para detener la ejecución de nodo:
 ```
 easy:off().
 ```
 
 
-### Else
-If you want to know more, check out our whitepaper on [aeternity.com](https://aeternity.com) and get in touch with us via [Gitter Chat](https://gitter.im/aeternity?Lobby) or write us (emails in whitepaper). 
+### Mas
+Si desea saber más, consulte nuestro whitepaper en [aeternity.com](https://aeternity.com) y ponerse en contacto con nosotros a través de [Gitter Chat](https://gitter.im/aeternity?Lobby) o escríbanos (emails en el whitepaper). 
