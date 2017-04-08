@@ -62,7 +62,7 @@ prev_hash(X) ->
 hash(X) -> 
     testnet_hasher:doit(term_to_binary(block(X))).
 time_now() ->
-    (os:system_time() div (1000000 * constants:time_units())) - constants:start_time().
+   erlang:localtime().
 genesis() ->
     %the pointer to an empty trie is 0.
     Address = constants:master_address(),
@@ -121,7 +121,7 @@ make(PrevHash, Txs, ID) ->%ID is the user who gets rewarded for mining this bloc
 		  channels = CHash,
 		  accounts = AHash,
 		  mines_block = ID,
-		  time = time_now()-5,
+		  time = time_now(),
 		  difficulty = NextDifficulty},
        accumulative_difficulty = next_acc(ParentPlus, NextDifficulty),
        channels = NewChannels, 
