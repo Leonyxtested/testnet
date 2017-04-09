@@ -1,39 +1,39 @@
-It was originally called a "dominant assurance contract".
-This is a contract made for raising money for public goods. It is not like an ICO, no new subcurrency is created.
+Originalmente se llamó un "contrato de aseguramiento dominante".
+Este es un contrato para recaudar dinero para bienes públicos. No es como un ICO, no se crea nueva moneda secundaria.
 
-There are 2 popular ways to raise money for public goods today:
-1) donation
-2) taxation
+Hay dos maneras populares de recaudar dinero para bienes públicos hoy:
+1) donación
+2) impuestos
 
-The problem with donation is called a "free rider problem".
-Some people who benefit from the public good's existence will refuse to donate.
+El problema con la donación se llama un "problema de jinete libre".
+Algunas personas que se benefician de la existencia del bien público se negarán a donar.
 
-The problem with taxation is that it involves the threat of violence.
-Since violence is involved, some people will end up paying more for the good than how much it benefits them.
+El problema con los impuestos es que implica la amenaza de la violencia.
+Dado que la violencia está involucrada, algunas personas terminarán pagando más por el bien que cuánto les beneficia.
 
-With insured crowdfunding each person ends up paying slightly less for the public good than how much it benefits them, this is the ideal we want.
+Con asegurado crowdfunding cada persona termina pagando un poco menos por el bien público de lo mucho que les beneficia, este es el ideal que queremos.
 
-There are 3 participants in insured crowdfunding:
-1) entrepenuers
-2) investors
-3) builders
+Hay 3 participantes en crowdfunding asegurado:
+1) empresario
+2) inversionistas
+3) constructores
 
-There are 2 possible results of the crowdfund:
-1) either the public good is successfully created,
-2) or it is not
+Hay 2 resultados posibles del crowdfund:
+1) el bien público se crea con éxito,
+2) o no es
 
-Here is a graph showing how much cost and reward each participant can get in each situation.
+Aquí hay un gráfico que muestra cuánto costo y recompensa cada participante puede obtener en cada situación.
 
-Participants    Entrepenuer    Investor      Builders
-Cost to play    10             110           0
-success         20             0             100
-failure         0              120           0
+Participantes Empresario Investor Constructor
+Costo             10        110        0
+Éxito             20         0        100
+Fallo             0         120        0
 
-The entrepenuer's job is to do the research to realize that the benefit of the public good outweighs the cost. If the entrepenuer is wrong, then they lose their money.
+El trabajo del empresario es hacer la investigación para darse cuenta de que el beneficio del bien público supera el costo. Si el empresario está equivocado, entonces pierden su dinero.
 
-The investor is someone who personally benefits from the creation of the public good. For example, maybe the public good is a new road, and the investor owns a store next to the road. The new road makes the store more valuable.
-The investor participates because it is a way to hedge his risks. The investor is buying insurance against the possibility that the road does not get built. Whether the road is built or not, the investor still profits.
-If the road is built, then the investor's store is more valuable, a profit.
-If the road is not built, then the investor gets their money back plus interest, a profit.
+El inversor es alguien que personalmente se beneficia de la creación del bien público. Por ejemplo, tal vez el bien público es un camino nuevo, y el inversionista posee una tienda al lado del camino. La nueva carretera hace que la tienda sea más valiosa.
+El inversionista participa porque es una forma de cubrir sus riesgos. El inversor está comprando un seguro contra la posibilidad de que la carretera no se construye. Si el camino se construye o no, el inversor sigue ganando.
+Si la carretera se construye, entonces la tienda del inversor es más valioso, un beneficio.
+Si el camino no se construye, entonces el inversor recibe su dinero de vuelta más los intereses, un beneficio.
 
-The builder only gets paid if they successfully build the public good.
+El constructor sólo se les paga si construyen con éxito el bien público.
