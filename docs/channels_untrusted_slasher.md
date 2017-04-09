@@ -1,16 +1,16 @@
-One desired property of channels is that users don't want to have to stay online 24/7 to be ready to provide evidence. They would prefer to pay other people to stay online with the evidence.
+Una propiedad deseada de los canales es que los usuarios no quieren tener que estar en línea 24/7 para estar listo para proporcionar pruebas. Preferirían pagar a otras personas para estar en línea con la evidencia.
 
-This creates several new attack vectors we will need to consider while designing the channels.
-The old channels looked like this:
-new_channel_tx, grow_channel, grow_channel, channel_team_close.
+Esto crea varios nuevos vectores de ataque que tendremos que considerar al diseñar los canales.
+Los viejos canales parecían esto:
+New_channel_tx, grow_channel, grow_channel, channel_team_close.
 
-the grow_channels have to each increase the amount of money controlled by the channel.
+Los grow_channels tienen que aumentar la cantidad de dinero controlada por el canal.
 
-or like this:
-new_channel_tx, grow_channel, channel_solo_close, channel_slash
-or like this:
-new_channel, channel_solo_close, channel_timeout	
+O como esto:
+New_channel_tx, grow_channel, channel_solo_close, channel_slash
+O como esto:
+New_channel, channel_solo_close, channel_timeout
 
-The new channels look like this:
-new_channel_tx, grow_channel, grow_channel, channel_solo_close, channel_slash, channel_slash, channel_slash, channel_timeout
+Los nuevos canales tienen este aspecto:
+New_channel_tx, grow_channel, canal de crecimiento, channel_solo_close, channel_slash, channel_slash, channel_slash, channel_timeout
 
