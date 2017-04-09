@@ -1,27 +1,27 @@
-Blockchains allow for prediction markets, which let us prepare for the future.
-To show how powerful prediction markets can be, we will use a prediction market to play go against a professional, and we will win.
+Blockchains permiten mercados de predicción, lo que nos permite prepararnos para el futuro.
+Para mostrar lo poderosos que pueden ser los mercados de predicción, usaremos un mercado de predicción para jugar contra un profesional y ganaremos.
 
-First we will make the big market, it sells 2 kinds of shares. "AI" shares only pay out if the professional loses. "Human" shares only pay out if the professional wins.
+Primero vamos a hacer el gran mercado, que vende 2 tipos de acciones. Las acciones de "IA" solo pagan si el profesional pierde. Las acciones "humanas" sólo pagan si el profesional gana.
 
-After every move, the relative price of "Human" and "AI" shares will change.
-For each move, we make 2 prediction markets, each with <=381 possible choices. The only difference between the two markets is that one is priced in "Human" shares, and the other in "AI" shares.
+Después de cada movimiento, el precio relativo de las acciones "Humana" y "IA" cambiará.
+Para cada movimiento, hacemos 2 mercados de predicción, cada uno con <= 381 opciones posibles. La única diferencia entre los dos mercados es que uno tiene un precio en acciones "Human" y el otro en acciones "IA".
 
-So for example, lets say the current price is 60% likely that the human will win,
-and you think that if the AI plays 5C, that the odds will shift to 50% likely that the human will win.
-(Which would make your AI tokens 5/4 as valuable)
-You also think that if the AI plays anywhere besides 5C, that the odds of the human winning will increase to 80%.
-(which would make your AI tokens 1/2 as valuable)
+Así que por ejemplo, digamos que el precio actual es 60% probable que el humano ganará,
+Y usted piensa que si el IA juega el 5C, que las probabilidades cambiarán al 50% probable que el humano ganará.
+(Que haría que tus fichas IA 5/4 como valioso)
+Usted también piensa que si la IA juega en cualquier lugar aparte de 5C, que las probabilidades del ganador humano aumentará al 80%.
+(Que haría que sus fichas IA 1/2 fueran valiosas)
 
-There are 4 locations in the Nash square defined by 2 questions:
-1) Does the AI play on 5C?
-2) Does the AI win?
+Hay 4 lugares en el cuadrado de Nash definidos por 2 preguntas:
+1) ¿La IA juega en el 5C?
+2) ¿El IA gana?
 
-You don't bet on either of these questions directly, rather you bet on the correlation.
-You would buy shares of (yes, yes), and you would buy shares of (no, no). You would sell shares of (yes, no) and (no, yes).
-You keep doing this until the prices of shares are such that if the AI plays 5C, the price of AI shares increases to 50%, and if the AI plays anywhere else, the price of AI shares decreases to 20%.
-
-
+No apuestas directamente a ninguna de estas preguntas, sino apostas en la correlación.
+Usted compraría acciones de (sí, sí), y compraría acciones de (no, no). Usted vendería acciones de (sí, no) y (no, sí).
+Sigue haciendo esto hasta que los precios de las acciones son tales que si la IA juega 5C, el precio de las acciones de IA aumenta al 50%, y si la IA juega en cualquier otro lugar, el precio de las acciones de IA disminuye al 20%.
 
 
 
-To decide the initial values of the <=381 outcomes for each market, we use the final values from the previous round of betting. Most of the good moves are still good, most of the bad moves are still bad.
+
+
+Para decidir los valores iniciales de los <= 381 resultados para cada mercado, usamos los valores finales de la ronda anterior de apuestas. La mayoría de los buenos movimientos siguen siendo buenos, la mayoría de los malos movimientos siguen siendo malos.
