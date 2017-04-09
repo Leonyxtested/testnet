@@ -1,28 +1,31 @@
-Make sure that your system is up-to-date:
+Asegúrese de que su sistema está actualizado y de que está ejecutando Ubuntu 16 o posterior:
+
+(Las versiones anteriores de ubuntu requieren instalar manualmente la última versión de erlang, porque el gestor de paquetes instala una versión antigua)
+
 ```
 sudo apt-get update
 ```
-and
+y
 ```
 sudo apt-get upgrade
 ```
 
-For Ubuntu, install following dependencies:
+Para Ubuntu, instale las siguientes dependencias:
 
 ```
 sudo apt-get install erlang libncurses5-dev libssl-dev unixodbc-dev g++ git erlang-base-hipe
 ```
 
-Next, download Aeternity Testnet. Optionally you can run next steps with a non-root user, for better security.
+A continuación, descargue Aeternity Testnet. Opcionalmente, puede ejecutar los siguientes pasos con un usuario no root, para una mejor seguridad.
 
 ```
 git clone https://github.com/aeternity/testnet.git
 ```
-Now you can go into the directory, and compile the aeternity testnet.
+Ahora usted puede entrar en el directorio, y compilar el testnet de aeternity.
 
 ```
 cd testnet/
 sh install.sh
 ```
 
-Installation should be done. Now you can run your node.
+La instalación debe hacerse. Ahora puede ejecutar su nodo.
