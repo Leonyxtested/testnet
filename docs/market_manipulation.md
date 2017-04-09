@@ -1,62 +1,62 @@
-What if someone payed money into the market that we use as an oracle to try to get it to lie?
+¿Qué pasa si alguien paga dinero en el mercado que usamos como un oráculo para tratar de conseguir que mienta?
 
-Example: we were betting on a football game, but now the game is over and we all know that Alice won.
-The correct outcome is that decision A is 99.99% likely to be the fork of the blockchain with high difficulty, and decision B is 0.01% likely to be the fork with high difficulty.
-An attacker keeps buying B to push the price above 50%.
-Defenders show up to buy shares of A at one-to-one odds.
-The attackers own lots of tokens on fork A, and update their software to use fork A.
-The defenders own lots of tokens on fork B, and update their software to use fork B.
-Everyone else prefers the fork that is honest, because they want a fork with a working oracle.
-It is the shelling point.
+Ejemplo: estábamos apostando a un partido de fútbol, pero ahora el juego ha terminado y todos sabemos que Alice ganó.
+El resultado correcto es que la decisión A es 99.99% probable que sea la horquilla de la cadena bloque con alta dificultad, y la decisión B es 0.01% probable que sea la horquilla con alta dificultad.
+Un atacante sigue comprando B para empujar el precio por encima del 50%.
+Los defensores se muestran para comprar acciones de A en uno-a-uno las probabilidades.
+Los atacantes poseen muchas fichas en la horquilla A, y actualizan su software para usar la horquilla A.
+Los defensores poseen muchas fichas en el tenedor B, y actualizan su software para usar el tenedor B.
+Todo el mundo prefiere el tenedor que es honesto, porque quieren un tenedor con un oráculo de trabajo.
+Es el punto de bombardeo.
 
-When the price is 50-50, the act of defending has this return rate:
+Cuando el precio es 50-50, el acto de defender tiene esta tasa de retorno:
 
-`1-(interest_rate*finality)`
+`1- (tasa de interés * finalidad)`
 
-Where interest_rate is the market rate you need to pay someone to be willing to hold Aeons for a time and be unable to access them.
-finality is the amount of time until the bets pay off.
-Defenders will only defend if they earn a profit, so, the oracle is only secure when
+Cuando el tipo de interés es la tasa de mercado, debe pagar a alguien que esté dispuesto a mantener Aeons por un tiempo y no pueda acceder a ellos.
+Finalidad es la cantidad de tiempo hasta que las apuestas pagan.
+Los defensores sólo defenderán si obtienen ganancias, por lo que el oráculo sólo es seguro cuando
 
-`(interest_rate*finality) < 1` .
-
-
-Blockchains are small and unstable, so the interest rate should be a very high amount of 10% per month, which is about 0.3% per day.
-
-The amount of time until bets can pay off needs to be longer than the difficulty retargetting period.
-That way the blockchain can know the demand for coins.
-In bitcoin, the retargetting period is 2000 blocks, which is about a week.
-So lets set our finality to 7 days = about 2.5% interest
-
-Plugging in to the formula:
-
-`(0.025 * 1) < 1`
-
-Which is true. So it is secure.
+`(tasa de interes * finalidad) <1`.
 
 
+Blockchains son pequeños e inestables, por lo que la tasa de interés debe ser una cantidad muy alta de 10% al mes, que es de alrededor del 0,3% por día.
+
+La cantidad de tiempo hasta que las apuestas pueden pagar debe ser más largo que el período de retargetting de dificultad.
+De esta forma, la cadena de bloques puede conocer la demanda de monedas.
+En bitcoin, el período de retargetting es de 2000 bloques, que es aproximadamente una semana.
+Así que vamos a establecer nuestra finalidad a 7 días = alrededor de 2,5% de interés
+
+Conectando a la fórmula:
+
+`(0,025 * 1) <1`
+
+Cual es verdad. Así que es seguro.
 
 
-Besides using markets for telling us true/false binary things, we also ask the oracle questions with less certainty. For example: "If we double the size of blocks, will that make the coins more or less valuable?"
-Depending on the price, we update the protocol.
-How valuable does a change need to be for us to be able to measure it?
 
-Lets say the price should be X, which is between 0.5 and 0.
-An attacker keeps pushing the price to 0.51, so change the outcome and force the protocol to update how he likes.
-The defenders profit for defending is
 
-`1 - (2 * X) - (interest_rate*finality)`
+Además de usar los mercados para decirnos cosas binarias verdaderas / falsas, también hacemos las preguntas del oráculo con menos certeza. Por ejemplo: "Si duplicamos el tamaño de los bloques, ¿eso hará que las monedas sean más o menos valiosas?"
+Dependiendo del precio, actualizamos el protocolo.
+¿Qué tan valioso debe ser un cambio para que podamos medirlo?
 
-`= 1 - (2 * X) - 0.025`
+Digamos que el precio debe ser X, que está entre 0,5 y 0.
+Un atacante sigue presionando el precio a 0,51, por lo que cambiar el resultado y forzar el protocolo para actualizar lo que le gusta.
+Los defensores ganan por defender es
 
-The defender will only defend if this is positive, so
+`1 - (2 * X) - (interest_rate * finality)
 
-`0.975 - 2X > 0`
+= 1 - (2 * X) - 0,025`
 
-`X < 0.975 / 2`
+El defensor sólo defenderá si esto es positivo, así que
 
-`X < 0.4875`
+`0,975 - 2X> 0 
 
-So the attacker can only push the price a maximum of `(interest_rate*finality)/2`
-If he pushes more than that, then it becomes profitable to defend against the manipulation.
+X <0,975 / 2
 
-If we only have < 2% confidence that decision A is better than B, then it isn't important which decision we make. It doesn't matter if we cannot prevent such tiny manipulations.
+X <0,4875`
+
+Así que el atacante sólo puede empujar el precio un máximo de `(interest_rate * finality) / 2`
+Si empuja más que eso, entonces se convierte en rentable defenderse contra la manipulación.
+
+Si sólo tenemos <2% de confianza en que la decisión A es mejor que B, entonces no es importante la decisión que tomamos. No importa si no podemos evitar esas pequeñas manipulaciones.
