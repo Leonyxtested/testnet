@@ -1,57 +1,52 @@
+Los mecanismos de los oraculos existentes se construyen encima de la votación. La votación no puede resolver adecuadamente el problema del oráculo de una manera útil. Los mecanismos de apuestas no sufren las mismas limitaciones.
 
-Existing oracle mechanisms are built on top of voting. Voting can not adequately solve the oracle problem in a useful way. Betting mechanisms do not suffer this same limitations. 
+Los usuarios quieren usar blockchains para apostar en eventos futuros. Quieren apostar por el precio de los bienes, por ejemplo.
 
+Un mecanismo de consenso de oráculo es un juego en una cadena de bloque diseñado para que los jugadores se incentiven para revelar hechos verdaderos sobre el mundo a la cadena de bloque. Una vez que la cadena de bloque aprende hechos sobre el mundo, puede resolver las apuestas. Los jugadores ganadores obtienen su dinero, perdiendo,los jugadores pierden su dinero.
 
+Las recompensas y los castigos del mecanismo de consenso del oráculo se miden en tokens.
 
-Users want to use blockchains to gamble on future events. They want to gamble on the price of goods, for example.
+PRINCIPIO ÚTIL: Para que un oráculo sea útil, necesita dar información exacta sobre el mundo exterior, incluso cuando la cantidad de dinero que se juega en el resultado del oráculo es mucho mayor que la cantidad de dinero en el mecanismo del oráculo.
 
-An oracle consensus mechanism is a game on a blockchain designed so that the players are incentivized to reveal true facts about the world to the blockchain. Once the blockchain learns facts about the world, it can resolve the bets. Winning gamblers get their money, losing gamblers lose their money.
+Existen mecanismos de consenso de oráculos que se construyen como mecanismos de votación que pueden castigar / recompensar a los votantes.
+Los mecanismos de votación no funcionan.
 
-The oracle consensus mechanism's rewards and punishments are all measured in tokens.
+Vamos a examinar a un votante Bob que controla el 10% del dinero en el oráculo.
+Su voto controla el 10% de la decisión del oráculo.
+A lo sumo, su castigo por mentir es la cantidad de dinero que tiene en el oráculo.
 
-USEFUL PRINCIPLE: For an oracle to be useful, it needs to give accurate information about the outside world, even when the amount of money being gambled on the oracle's result is much bigger than the amount of money in the oracle mechanism.
+Si le ofrecemos un soborno que es más grande que cuánto podría perder por mentir, mentirá.
+Por lo tanto, si estamos dispuestos a sobornar más que la cantidad total de dinero en el oráculo, podríamos conseguir que el oráculo mienta.
+Por el principio útil, el dinero total en el oráculo es mucho menor que la cantidad que se juega.
+Por lo tanto, es rentable sobornar a los validadores de esta manera y atacar el oráculo.
 
-Existing oracle consensus mechanisms are built as voting mechanisms that can punish/reward the voters.
-Voting mechanisms do not work.
+Ahora vamos a examinar los mecanismos de apuestas.
+Hay un experimento famoso. Se crea un mercado de predicción con sólo N dinero de liquidez inicial.
+El resultado del mercado de predicción se determinará por el tirón de una moneda.
+A algunos mejores se les ofrece un premio. Si pueden mantener el precio por encima del 70% de posibilidades de los jefes, entonces obtienen 10N del premio en metálico.
+El mercado de la predicción todavía diría que el 50% de posibilidades de los jefes.
 
-Lets examine a voter Bob who controls 10% of the money in the oracle.
-His vote controls 10% of the oracle's decision.
-At most, his punishment for lying is the amount of money he has in the oracle.
+Cada vez que los mejores que fueron sobornados movieron el precio hasta el 70%, crearía una oportunidad.
+Por $ 0.40, cualquiera podría comprar un activo que tenga 50% de probabilidad de valer $ 1. En promedio, una ganancia del 20%.
 
-If we offer him a bribe that is bigger than how much he could lose from lying, he will lie.
-So, if we are willing to bribe more than the total amount of money in the oracle, we could get the oracle to lie.
-By the useful principle, the total money in the oracle is much less than the amount being gambled.
-So, it is profitable to bribe the validators this way and attack the oracle.
+Los manipuladores en comparación están pagando $ 0.60 por un activo que tiene una probabilidad del 50% de valer $ 1.
+Cada vez que manipulan el precio, están regalando dinero como premio para deshacer su manipulación.
 
-
-
-Now lets examine betting mechanisms.
-There is a famous experiment. A prediction market with only N money of initial liquidity in it is created.
-The outcome of the prediction market will be determined by the flip of a coin.
-Some betters are offered a prize. If they can keep the price above 70% chance of heads, then they get 10N of prize money.
-The prediction market would still say 50% chance of heads.
-
-Every time the betters where were bribed moved the price up to 70%, it would create an opportunity.
-For $0.40, anyone could buy an asset that has 50% chance of being worth $1. On average, a 20% profit.
-
-The manipulators in comparison are paying $0.60 for an asset that has a 50% chance of being worth $1.
-Every time they manipulate the price, they are giving money away as a prize to undo their manipulation.
-
-So, a betting market can give accurate answers, even if some users are incentivized to make it lie.
-Even if the incentive to make the market lie are bigger than the total amount of money in the market.
-Betting markets satisfy the useful principle, so it is possible that they can be used as an oracle mechanism.
+Por lo tanto, un mercado de apuestas puede dar respuestas exactas, incluso si algunos usuarios están incentivados a hacer mentir.
+Incluso si el incentivo para hacer mentir el mercado son más grandes que la cantidad total de dinero en el mercado.
+Los mercados de apuestas satisfacen el principio útil, por lo que es posible que puedan ser utilizados como un mecanismo oráculo.
 
 
-There are limitations of using betting as an oracle.
-The only things we can bet on are facts that the blockchain already comes to know.
-The only thing that the blockchain knows that is correlated with the accuracy of oracle decisions is the difficulty of finding blocks.
+Hay limitaciones de usar las apuestas como un oráculo.
+Las únicas cosas en las que podemos apostar son los hechos que la cadena de bloqueos ya conoce.
+Lo único que la cadena de bloqueo sabe que está correlacionada con la precisión de las decisiones de oráculo es la dificultad de encontrar bloques.
 
 
-We can overcome these limitations.
-If the oracle lied, then the users could do a hard-fork to fix the oracle's answer. So the attackers would lose all the money in the attack, and that money would reward the users who participated in defense.
-If the miners prefer the honest chain, then the difficulty of finding blocks on the dishonest chain will go very low. So the attackers would lose their money on both forks, and defenders would be rewarded on both forks.
+Podemos superar estas limitaciones.
+Si el oráculo mintió, entonces los usuarios podrían hacer un hard-fork para arreglar la respuesta del oráculo. Así que los atacantes perderían todo el dinero en el ataque, y ese dinero recompensaría a los usuarios que participaron en la defensa.
+Si los mineros prefieren la cadena honesta, entonces la dificultad de encontrar bloques en la cadena deshonesta será muy baja. Así que los atacantes perderían su dinero en ambos bifurcaciones, y los defensores serían recompensados en ambos bifurcaciones.
 
 
-The big picture:
-The network decides the outcome of oracles by hard forking the code.
-Betting is used to cover the cost of making these expensive hard forks.
+El panorama:
+La red decide el resultado de los oráculos mediante el hard-fork del código.
+Las apuestas se usan para cubrir el costo de hacer estos hard-fork.
