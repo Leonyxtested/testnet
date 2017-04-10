@@ -1,28 +1,28 @@
-We use a trie to store all the questions that have been asked of the oracle.
-We use another trie to store the answers, for any questions that were answered.
-We use a trie to store all the questions that have been asked of the oracle.
-We use another trie to store the answers, for any questions that were answered.
+Utilizamos un trie para almacenar todas las preguntas que se han hecho del oráculo.
+Usamos otro trie para almacenar las respuestas, para cualquier pregunta que fue contestada.
+Utilizamos un trie para almacenar todas las preguntas que se le han hecho al oráculo.
+Usamos otro trie para almacenar las respuestas, para cualquier pregunta que fue contestada.
 
-For questions that are in the process of being answered, we store a market in the on-chain state.
-The market remembers how many shares of each type have been sold, and it remembers what it's initial liquidity was, and it should have an order-book.
-The market has 4 possible outcomes:
-1) difficulty goes up, and oracle's outcome is true
-2) difficulty goes up, and oracle's outcome is false
-3) difficulty goes down, and oracle's outcome is true
-4) difficulty goes down, and oracle's outcome is false
+Para las preguntas que están en el proceso de respuesta, almacenamos un mercado en el estado en cadena.
+El mercado recuerda cuántas acciones de cada tipo se han vendido, y recuerda cuál era su liquidez inicial, y debería tener un libro de órdenes.
+
+El mercado tiene 4 resultados posibles:
+
+1) la dificultad sube, y el resultado del oráculo es verdadero
+2) la dificultad sube, y el resultado del oráculo es falso
+3) la dificultad baja y el resultado del oráculo es verdadero
+4) la dificultad baja, y el resultado del oráculo es falso
+
+*** De alguna manera, necesitamos saber cuántas acciones de cada tipo posee cada cuenta.
+
+La liquidez inicial se recopilará utilizando un contrato de garantía dominante fuera de la cadena.
+
+El resultado del oráculo se mide mirando la correlación entre los resultados.
+Sumamos las diagonales, y vemos qué camino es más grande.
+Si la correlación está en la misma dirección para suficientes bloques, entonces ese es el resultado del oráculo.
+Dado que usamos un libro de pedidos, es caro para los atacantes DDOS mover el precio más allá del 50% cada vez que el oráculo está casi terminado.
 
 
-
-***  Somehow, we need to know how many shares of each type each account owns.
-
-The initial liquidity will be collected using an off-chain dominant assurance contract.
-
-the result of the oracle is measured by looking at the correlation between the outcomes.
-We sum the diagonals, and see which way is bigger.
-If the correlation is in the same direction for enough blocks, then that is the oracle's result.
-Since we use an order book, it is expensive for attackers to DDOS us by moving the price past 50% every time the oracle is almost done.
-
-
-We should pay the gambler all at once, because only one fork can survive.
-When a gambler wants to get paid, they need a way to prove how they bet.
-*** Maybe we should have a merkle root of bets in each account?
+Deberíamos pagar al jugador de una sola vez, porque sólo un fork puede sobrevivir.
+Cuando un jugador quiere ser pagado, necesitan una manera de probar cómo apuestan.
+*** Tal vez deberíamos tener una raíz merkle de apuestas en cada cuenta?
