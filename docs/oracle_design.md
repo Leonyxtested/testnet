@@ -1,60 +1,57 @@
-We use a trie to store all the questions that have been asked of the oracle.
-We use another trie to store the answers, for any questions that were answered.
+Utilizamos un trie para almacenar todas las preguntas que se han hecho del oráculo.
+Usamos otro trie para almacenar las respuestas, para cualquier pregunta que fue contestada.
 
-For questions that are in the process of being answered, we store a market in the on-chain state.
-The market remembers how many shares of each type have been sold, and it remembers what it's initial liquidity was, and it should have an order-book.
-The market has 6 possible outcomes:
-1) difficulty goes up, and oracle's outcome is true
-2) difficulty goes up, and oracle's outcome is false
-3) difficulty goes down, and oracle's outcome is true
-4) difficulty goes down, and oracle's outcome is false
-5) difficulty goes up, and the oracle's outcome is bad_question
-6) difficulty goes down, and the oracle's outcome is bad_question
+Para las preguntas que están en el proceso de respuesta, almacenamos un mercado en el estado en cadena.
+El mercado recuerda cuántas acciones de cada tipo se han vendido, y recuerda cuál era su liquidez inicial, y debería tener un libro de órdenes.
 
-Each market should have a trie for storing orders in the order book, and it should have an accounts trie, to remember how much money each account has.
+El mercado tiene 6 resultados posibles:
+1) la dificultad sube, y el resultado del oráculo es verdadero
+2) la dificultad sube, y el resultado del oráculo es falso
+3) la dificultad baja y el resultado del oráculo es verdadero
+4) la dificultad baja, y el resultado del oráculo es falso
+5) la dificultad sube, y el resultado del oráculo es mala respuesta
+6) la dificultad baja, y el resultado del oráculo es mala respuesta
 
-All the market trie roots should be combined as a merkle trie into the block, so that as the number of markets grows by N, the increase in cost is only O(log(N)).
+Cada mercado debe tener un trie para almacenar órdenes en el libro de órdenes, y debe tener un trie de cuentas, para recordar cuánto dinero tiene cada cuenta.
 
-We also need to keep a record of how many open orders exist at every price, that way the block maker can't censor any trades.
+Todas las raíces del mercado deben combinarse como un merkle trie en el bloque, de modo que a medida que el número de mercados crece por N, el aumento en el costo es sólo O (log (N)).
 
-in total, that was 6 tries:
-* questions. each block has a root
-* answers. each block has a root of this
-* order book trades
-* how many shares each account owns
-* a trie that stores pairs, containing one each of the previous 2 types of trie roots, an order book trie root, and a shares-accounts trie root. each block has a root of this.
-* how many open orders at each price
+También necesitamos mantener un registro de cuántas órdenes abiertas existen a cada precio, de esa manera el fabricante del bloque no puede censurar ningún oficio.
 
-The roots in each block should combine to make a single root that is stored in the block hash.
+En total, eso fue 6 intentos:
+* Preguntas. Cada bloque tiene una raíz
+* Respuestas. Cada bloque tiene una raíz de esta
+* Operaciones de libros de pedidos
+* Cuántas acciones posee cada cuenta
+* Un trie que almacena pares, que contienen uno de los dos tipos anteriores de raíces, un libro de órdenes de la raíz, y una cuenta de acciones-raíz. Cada bloque tiene una raíz de esto.
+* Cuántas órdenes abiertas en cada precio
+
+Las raíces en cada bloque deben combinarse para formar una sola raíz que se almacena en el bloque hash.
+
+El resultado del oráculo se mide mirando la correlación entre los resultados.
+Sumamos las diagonales, y vemos qué camino es más grande.
+Si la correlación está en la misma dirección para suficientes bloques, entonces ese es el resultado del oráculo.
+Dado que usamos un libro de pedidos, es caro para los atacantes DDOS nosotros moviendo el precio más allá del 50% cada vez que el oráculo está casi terminado.
 
 
-
-the result of the oracle is measured by looking at the correlation between the outcomes.
-We sum the diagonals, and see which way is bigger.
-If the correlation is in the same direction for enough blocks, then that is the oracle's result.
-Since we use an order book, it is expensive for attackers to DDOS us by moving the price past 50% every time the oracle is almost done.
-
-
-tx types:
-AskQuestion
+Tx tipos:
+Pregunta
 OracleBet
 OracleFinish
-CollectReward
+Recoger la recompensa
 
-AskQuestion
-This costs a big deposit. If the question is answered in the expected way, you get most of the deposit back.
-If they decide it is a bad question, then your deposit is deleted.
+Pregunta
+Esto cuesta un gran depósito. Si la pregunta se responde de la manera esperada, obtiene la mayor parte del depósito de vuelta.
+Si deciden que es una mala pregunta, su depósito se elimina.
 
 OracleBet
-This is how you make a bet in the on-chain market, which measures the correlation between the answers to oracle questions, and the mining difficulty. It is a LMSR order book, so you say how many shares for the lowest price you are willing to sell at, or how many shares for the highest price you are willing to buy at.
+Así es como usted hace una apuesta en el mercado de la cadena, que mide la correlación entre las respuestas a las preguntas del oráculo, y la dificultad de la minería. Es un libro de órdenes LMSR, por lo que usted dice cuántas acciones por el precio más bajo está dispuesto a vender, o cuántas acciones por el precio más alto que está dispuesto a comprar.
 
-AnswerQuestion
-If the oracle's correlation has shown with high enough margin for a long enough period of time that one answer is preferable, then anyone can do this transaction to permanently record the answer to the question.
+Pregunta de respuesta
+Si la correlación del oráculo ha demostrado con un margen suficientemente alto durante un período suficientemente largo de tiempo que una respuesta es preferible, entonces cualquier persona puede hacer esta transacción para registrar permanentemente la respuesta a la pregunta.
 
-CollectReward
-If you made a winning bet, this is how you collect your winnings.
-
-
+Recoger la recompensa
+Si has hecho una apuesta ganadora, así es como recaudas tus ganancias.
 
 
-The initial liquidity will be collected using an off-chain dominant assurance contract.
+La liquidez inicial se recopilará utilizando un contrato de garantía dominante fuera de la cadena.
