@@ -1,28 +1,27 @@
-In other documents, we discussed why the oracle will be a market, and how this market will work.
+En otros documentos, discutimos por qué el oráculo será un mercado, y cómo funcionará este mercado.
 
-We could build this market on-chain, but that would come with serious anti-scalability costs.
-We would have to remember the sorted list of open orders orders at many different block heights.
+Podríamos construir este mercado en la cadena, pero que vendría con graves costos anti-escalabilidad.
+Tendríamos que recordar la lista ordenada de órdenes abiertas en muchas alturas de bloques diferentes.
 
-Here you can read about how the oracle can be built off-chain.
+Aquí puede leer acerca de cómo el oráculo puede ser construido fuera de cadena.
 
-The steps are like this:
-1) Someone commits to running the oracle market. They allow anyone to make channels with them and bet.
-2) The miners make multiple bets in the market to cancel their risk. The miners do this anonymously. 
-3) The oracle periodically publishes the prices of the different kinds of shares in the oracle. The act of publishing a price closes many open orders made in many different channels. It closes all the orders that agreed to trade at that price.
-4) Once the price stays stable for a long enough period of time, the coorelation of the oracle's resolution with the difficulty is computed, and from it the blockchain learns the true fact about our world.
+Los pasos son los siguientes:
+1) Alguien se compromete a ejecutar el mercado del oráculo. Permiten que cualquier persona haga los canales con ellos y apueste.
+2) Los mineros hacen apuestas múltiples en el mercado para cancelar su riesgo. Los mineros lo hacen anónimamente.
+3) El oráculo publica periódicamente los precios de los diferentes tipos de acciones en el oráculo. El acto de publicar un precio cierra muchas órdenes abiertas hechas en muchos canales diferentes. Cierra todas las órdenes que acordaron comerciar a ese precio.
+4) Una vez que el precio se mantiene estable durante un período de tiempo suficientemente largo, se calcula la coordinación de la resolución del oráculo con la dificultad y de ella la cadena de bloques aprende el verdadero hecho de nuestro mundo.
 
+Vectores de ataque para analizar
+1) ¿Qué pasa si el oráculo se niega a tomar cualquier apuesta en el mercado?, entonces el oráculo no tiene incentivos para escribir los precios correctos.
+* Los mineros hacen apuestas múltiples en el mercado para cancelar su riesgo. Los mineros lo hacen anónimamente a través de relámpagos de cebolla. Hacen suficientes apuestas para tener confianza estadística sobre el porcentaje de apuestas censuradas.
+* Si demasiadas de las apuestas del minero son censuradas (>~ 95%), entonces los mineros censuran al oráculo de publicar el resultado.
 
+2) ¿Qué pasa si el oráculo escribe un precio equivocado en el último minuto, por lo que el volumen de operaciones es pequeño?
+* El oráculo no se establece hasta que el precio permanezca en un intervalo durante mucho tiempo.
 
-Attack vectors to analyse
-1) What if the oracle refuses to take any bets in the market, then the oracle has no incentive to write the correct prices.
-* The miners make multiple bets in the market to cancel their risk. The miners do this anonymously via onion lightning. They do enough bets to have statistical confidence about the percentage of bets that are censored.
-* If too many of the miner's bets are censored (> ~95%), then the miners censor the oracle from publishing the result.
+3) ¿Qué pasa si el oráculo censura sólo suficientes votos para que la mitad de los mineros se divida en un lado de un fork y la otra mitad esté en el otro lado de un fork?
 
-2) What if the oracle write the wrong price at the last minute, so the volume of trades is small?
-* The oracle doesn't settle until the price stays in one range for a long time.
-
-3) What if the oracle censors just enough votes so that half the miners split onto one side of a fork, and the other half are on the other side of a fork?
-*There are 3 possible outcomes:
-*1 >95% of bets are censored, in which case we censor the oracle, miners refuse to build on top of blocks that include oracle transactions.
-*2 Less than 80% of bets are cesored, in which case we don't censor the oracle, and we have a strong preference for the side of the fork that publishes the oracle result. It doesn't matter the height at which a fork includes the oracle transactions.
-*3 Between 80% and 95% are censored, in which case the miners accept whichever side of the fork is longer without preference, and they censor the oracle txs from the blocks they mine.
+*Hay 3 resultados posibles:
+*1> 95% de las apuestas son censuradas, en cuyo caso censuramos el oráculo, los mineros se niegan a construir sobre los bloques que incluyen transacciones de oráculo.
+*2 Menos del 80% de las apuestas son cesuradas, en cuyo caso no censuramos el oráculo, y tenemos una fuerte preferencia por el lado del fork que publica el resultado del oráculo. No importa la altura en la que un fork incluya las transacciones del oráculo.
+*3 Entre el 80% y el 95% son censurados, en cuyo caso los mineros aceptan cualquier lado del fork es más largo sin preferencia, y censuran el oráculo txs de los bloques que mina.
