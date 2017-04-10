@@ -1,4 +1,4 @@
-key selling points.
+puntos de venta clave.
 
-channels + smart contracts
-oracles
+Canales + contratos inteligentes
+Oráculos
