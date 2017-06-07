@@ -26,8 +26,7 @@ En caso de que haya algún problema con el terminal y desea reinstalarlo:
 
 -Abrir el CMD,tecla Windows+R, o buscando "Símbolo del sistema".
 
--Escribe ```lxrun /uninstall``` para eliminarlo pero dejando el directorio ```/home``` y ```/root```; para eliminarlo completo escribe 
- ```lxrun /uninstall /full```.
+-Escribe ```lxrun /uninstall``` para eliminarlo pero dejando el directorio ```/home``` y ```/root```; para eliminarlo completo escribe ```lxrun /uninstall /full```.
 
 -Para instalarlo de nuevo escriba ```lxrun /install```, empezara a descargarlo he instalarlo, tardara un poco,cuando termine te 
  pedira un nombre de usuario y contraseña.
